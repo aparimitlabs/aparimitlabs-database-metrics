@@ -64,6 +64,7 @@ class OptionsAnalyzer {
 
 		// Static query — no user-supplied variables, so prepare() is not required.
 		// WordPress supports both 'yes' (pre-6.0) and 'on' (6.0+) autoload values.
+		// phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching
 		$bytes = (int) $wpdb->get_var(
 			"SELECT SUM( OCTET_LENGTH( option_value ) )
 			 FROM {$wpdb->options}
@@ -93,6 +94,7 @@ class OptionsAnalyzer {
 	public static function get_expired_transient_count() {
 		global $wpdb;
 
+		// phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching
 		return (int) $wpdb->get_var(
 			$wpdb->prepare(
 				"SELECT COUNT( option_name )
@@ -122,6 +124,7 @@ class OptionsAnalyzer {
 	public static function purge_expired_transients() {
 		global $wpdb;
 
+		// phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching
 		$expired_timeouts = $wpdb->get_col(
 			$wpdb->prepare(
 				"SELECT option_name

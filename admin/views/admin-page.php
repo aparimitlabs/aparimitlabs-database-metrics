@@ -15,6 +15,8 @@
  * @package AplExt\DBPulse
  */
 
+// phpcs:disable WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound
+
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
@@ -314,7 +316,7 @@ $cron_schedule      = isset( $settings['cron_schedule'] )      ? $settings['cron
 					printf(
 						/* translators: %d: configured threshold in milliseconds */
 						esc_html__( ' (threshold: %d ms)', 'aplext-dbplus' ),
-						$slow_query_ms
+						(int) $slow_query_ms
 					);
 					?>
 				</summary>
@@ -347,7 +349,7 @@ $cron_schedule      = isset( $settings['cron_schedule'] )      ? $settings['cron
 				printf(
 					/* translators: %d: configured threshold in milliseconds */
 					esc_html__( 'No slow queries detected on this request (threshold: %d ms).', 'aplext-dbplus' ),
-					$slow_query_ms
+					(int) $slow_query_ms
 				);
 				?>
 			</div>
