@@ -1,7 +1,7 @@
 <?php
 /**
  * Plugin Name:       AplExt DBPlus
- * Plugin URI:        https://github.com/aparimitlabs/aplext-db-plus
+ * Plugin URI:        https://github.com/aparimitlabs/aplext-dbplus
  * Description:       Monitors database query counts, total execution time, autoloaded options size, and orphan transients.
  * Version:           1.0.0
  * Requires at least: 5.8
