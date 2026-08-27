@@ -1,0 +1,335 @@
+/*
+ * DB-Pulse Admin Stylesheet
+ *
+ * Scoped to Tools → DB-Pulse and Tools → DB-Pulse Settings pages only.
+ * Builds on top of standard WP admin styles — no resets required.
+ *
+ * Naming convention: BEM-style with .db-pulse- prefix to avoid conflicts.
+ */
+
+/* ── Layout & Header ──────────────────────────────────────────────────── */
+
+.db-pulse-wrap {
+	max-width: 900px;
+}
+
+.db-pulse-header {
+	display: flex;
+	align-items: baseline;
+	flex-wrap: wrap;
+	gap: 8px 16px;
+	margin: 16px 0 24px;
+	padding-bottom: 16px;
+	border-bottom: 1px solid #dcdcde;
+}
+
+.db-pulse-title {
+	margin: 0 !important;
+	font-size: 1.5rem;
+	font-weight: 700;
+	color: #1d2327;
+	display: flex;
+	align-items: center;
+	gap: 8px;
+}
+
+.db-pulse-icon {
+	font-size: 1.25rem;
+}
+
+.db-pulse-subtitle {
+	margin: 0;
+	color: #646970;
+	flex-basis: 100%;
+}
+
+.db-pulse-settings-link {
+	margin-left: auto;
+	font-size: 0.85rem;
+	text-decoration: none;
+	color: #646970;
+	border: 1px solid #dcdcde;
+	padding: 4px 10px;
+	border-radius: 4px;
+	transition: color 0.15s ease, border-color 0.15s ease;
+}
+
+.db-pulse-settings-link:hover {
+	color: #2271b1;
+	border-color: #2271b1;
+}
+
+/* ── Notices ──────────────────────────────────────────────────────────── */
+
+.db-pulse-notice {
+	margin-bottom: 16px !important;
+}
+
+/* ── Metrics Table ────────────────────────────────────────────────────── */
+
+.db-pulse-table {
+	margin-top: 32px !important;
+	border-radius: 4px;
+	overflow: hidden;
+}
+
+.db-pulse-table thead th {
+	background-color: #f0f0f1;
+	font-weight: 600;
+	font-size: 0.8rem;
+	text-transform: uppercase;
+	letter-spacing: 0.05em;
+	color: #50575e;
+	padding: 10px 16px;
+}
+
+.db-pulse-table tbody td {
+	padding: 14px 16px;
+	vertical-align: middle;
+	line-height: 1.5;
+}
+
+.db-pulse-table tbody tr:hover td {
+	background-color: #f6f7f7;
+}
+
+.db-pulse-meta {
+	display: block;
+	font-size: 0.8rem;
+	color: #646970;
+	margin-top: 3px;
+}
+
+.db-pulse-unavailable {
+	color: #646970;
+	font-size: 0.85rem;
+}
+
+/* ── Status Badges ────────────────────────────────────────────────────── */
+
+.db-pulse-badge {
+	display: inline-flex;
+	align-items: center;
+	gap: 4px;
+	padding: 3px 10px;
+	border-radius: 20px;
+	font-size: 0.78rem;
+	font-weight: 600;
+	white-space: nowrap;
+	line-height: 1.4;
+}
+
+.db-pulse-badge--good {
+	background-color: #edfaef;
+	color: #1a7431;
+	border: 1px solid #b8e6bf;
+}
+
+.db-pulse-badge--warning {
+	background-color: #fef8ee;
+	color: #8a5100;
+	border: 1px solid #f5d67f;
+}
+
+.db-pulse-badge--neutral {
+	background-color: #f0f6fc;
+	color: #0969da;
+	border: 1px solid #b6d4f7;
+}
+
+/* ── Purge Button ─────────────────────────────────────────────────────── */
+
+.db-pulse-purge-btn {
+	display: inline-flex;
+	align-items: center;
+	gap: 4px;
+	font-size: 0.82rem !important;
+}
+
+/* ── Section Wrapper ──────────────────────────────────────────────────── */
+
+.db-pulse-section {
+	margin-top: 20px;
+}
+
+/* ── Slow Queries Accordion ───────────────────────────────────────────── */
+
+.db-pulse-slow-queries {
+	border: 1px solid #f5d67f;
+	border-radius: 4px;
+	background-color: #fffcf0;
+	overflow: hidden;
+}
+
+.db-pulse-slow-queries__toggle {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	padding: 12px 16px;
+	font-weight: 600;
+	font-size: 0.9rem;
+	cursor: pointer;
+	list-style: none;
+	background-color: #fef8ee;
+	border-bottom: 1px solid #f5d67f;
+	color: #3c3c3c;
+	user-select: none;
+}
+
+.db-pulse-slow-queries__toggle::-webkit-details-marker {
+	display: none;
+}
+
+.db-pulse-slow-queries__toggle::after {
+	content: "▼";
+	font-size: 0.6rem;
+	color: #8a5100;
+	margin-left: auto;
+	transition: transform 0.2s ease;
+}
+
+.db-pulse-slow-queries[open] .db-pulse-slow-queries__toggle::after {
+	transform: rotate(180deg);
+}
+
+.db-pulse-slow-queries__body {
+	padding: 0 16px 16px;
+}
+
+/* ── Individual Query Card ────────────────────────────────────────────── */
+
+.db-pulse-query-item {
+	margin-top: 16px;
+	padding: 12px 14px;
+	background: #fff;
+	border: 1px solid #e8ddb5;
+	border-radius: 4px;
+}
+
+.db-pulse-query-item__header {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	margin-bottom: 8px;
+}
+
+.db-pulse-query-item__num {
+	font-size: 0.78rem;
+	color: #646970;
+}
+
+.db-pulse-query-item__sql {
+	font-family: Consolas, "Courier New", monospace;
+	font-size: 0.78rem;
+	line-height: 1.6;
+	white-space: pre-wrap;
+	word-break: break-all;
+	background: #f6f7f7;
+	border: 1px solid #dcdcde;
+	border-radius: 3px;
+	padding: 10px 12px;
+	margin: 0 0 8px;
+	color: #1d2327;
+	max-height: 200px;
+	overflow-y: auto;
+}
+
+.db-pulse-query-item__callers {
+	font-size: 0.78rem;
+	color: #50575e;
+	margin: 0;
+	word-break: break-all;
+}
+
+/* ── No Slow Queries Banner ───────────────────────────────────────────── */
+
+.db-pulse-no-slow {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	padding: 12px 16px;
+	background-color: #edfaef;
+	border: 1px solid #b8e6bf;
+	border-radius: 4px;
+	font-size: 0.9rem;
+	color: #1a7431;
+}
+
+/* ── SAVEQUERIES Hint Box ─────────────────────────────────────────────── */
+
+.db-pulse-savequeries-notice {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: 8px;
+	padding: 14px 16px;
+	background-color: #f0f6fc;
+	border: 1px solid #b6d4f7;
+	border-radius: 4px;
+	font-size: 0.9rem;
+	color: #1d2327;
+}
+
+.db-pulse-code-hint {
+	flex-basis: 100%;
+	font-family: Consolas, "Courier New", monospace;
+	font-size: 0.82rem;
+	background: #fff;
+	border: 1px solid #c8d8ea;
+	border-radius: 3px;
+	padding: 8px 12px;
+	margin: 4px 0 0;
+	color: #0969da;
+}
+
+/* ── Settings Form ────────────────────────────────────────────────────── */
+
+.db-pulse-settings-form {
+	background: #fff;
+	border: 1px solid #dcdcde;
+	border-radius: 4px;
+	padding: 8px 0;
+}
+
+.db-pulse-settings-table th {
+	padding: 20px 16px 20px 24px;
+	font-weight: 600;
+	vertical-align: top;
+	padding-top: 22px;
+}
+
+.db-pulse-settings-table td {
+	padding: 16px 16px 16px 0;
+}
+
+.db-pulse-settings-table tr {
+	border-top: 1px solid #f0f0f1;
+}
+
+.db-pulse-settings-table tr:first-child {
+	border-top: none;
+}
+
+.db-pulse-input-group {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	margin-bottom: 6px;
+}
+
+.db-pulse-input-suffix {
+	font-size: 0.85rem;
+	color: #646970;
+}
+
+.db-pulse-checkbox-label {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	font-weight: 500;
+	cursor: pointer;
+}
+
+.db-pulse-settings-form .submit {
+	padding: 16px 24px 8px !important;
+}
