@@ -29,7 +29,7 @@ $cron_schedule      = isset( $settings['cron_schedule'] )      ? $settings['cron
 
 	<h1 class="db-pulse-title">
 		<span class="db-pulse-icon" aria-hidden="true">⚡</span>
-		<?php esc_html_e( 'DB-Pulse', 'aplext-db-pulse' ); ?>
+		<?php esc_html_e( 'DB-Pulse', 'aplext-dbplus' ); ?>
 	</h1>
 
 <!-- ── Settings Form ──────────────────────────────────────────────────── -->
@@ -42,7 +42,7 @@ $cron_schedule      = isset( $settings['cron_schedule'] )      ? $settings['cron
 		<tr>
 			<th scope="row">
 				<label for="aplext_dbpulse_autoload_threshold">
-					<?php esc_html_e( 'Autoload Size Warning Threshold', 'aplext-db-pulse' ); ?>
+					<?php esc_html_e( 'Autoload Size Warning Threshold', 'aplext-dbplus' ); ?>
 				</label>
 			</th>
 			<td>
@@ -57,18 +57,18 @@ $cron_schedule      = isset( $settings['cron_schedule'] )      ? $settings['cron
 						step="1"
 						required
 					/>
-					<span class="db-pulse-input-suffix"><?php esc_html_e( 'bytes', 'aplext-db-pulse' ); ?></span>
+					<span class="db-pulse-input-suffix"><?php esc_html_e( 'bytes', 'aplext-dbplus' ); ?></span>
 				</div>
 				<p class="description">
 					<?php
 					printf(
 						/* translators: %s: human-readable equivalent of the current value */
-						esc_html__( 'Currently set to %s. The status badge turns "warning" when the total autoloaded size exceeds this value.', 'aplext-db-pulse' ),
+						esc_html__( 'Currently set to %s. The status badge turns "warning" when the total autoloaded size exceeds this value.', 'aplext-dbplus' ),
 						'<strong>' . esc_html( size_format( $autoload_threshold, 2 ) ) . '</strong>'
 					);
 					?>
 					<br />
-					<?php esc_html_e( 'Default: 800000 (800 KB).', 'aplext-db-pulse' ); ?>
+					<?php esc_html_e( 'Default: 800000 (800 KB).', 'aplext-dbplus' ); ?>
 				</p>
 			</td>
 		</tr>
@@ -77,7 +77,7 @@ $cron_schedule      = isset( $settings['cron_schedule'] )      ? $settings['cron
 		<tr>
 			<th scope="row">
 				<label for="aplext_dbpulse_slow_query_ms">
-					<?php esc_html_e( 'Slow Query Threshold', 'aplext-db-pulse' ); ?>
+					<?php esc_html_e( 'Slow Query Threshold', 'aplext-dbplus' ); ?>
 				</label>
 			</th>
 			<td>
@@ -92,10 +92,10 @@ $cron_schedule      = isset( $settings['cron_schedule'] )      ? $settings['cron
 						step="1"
 						required
 					/>
-					<span class="db-pulse-input-suffix"><?php esc_html_e( 'ms', 'aplext-db-pulse' ); ?></span>
+					<span class="db-pulse-input-suffix"><?php esc_html_e( 'ms', 'aplext-dbplus' ); ?></span>
 				</div>
 				<p class="description">
-					<?php esc_html_e( 'Queries taking longer than this value will appear in the slow query list below (requires SAVEQUERIES to be enabled). Default: 50 ms.', 'aplext-db-pulse' ); ?>
+					<?php esc_html_e( 'Queries taking longer than this value will appear in the slow query list below (requires SAVEQUERIES to be enabled). Default: 50 ms.', 'aplext-dbplus' ); ?>
 				</p>
 			</td>
 		</tr>
@@ -103,7 +103,7 @@ $cron_schedule      = isset( $settings['cron_schedule'] )      ? $settings['cron
 		<!-- Automated Cleanup -->
 		<tr>
 			<th scope="row">
-				<?php esc_html_e( 'Automated Cleanup', 'aplext-db-pulse' ); ?>
+				<?php esc_html_e( 'Automated Cleanup', 'aplext-dbplus' ); ?>
 			</th>
 			<td>
 				<label for="aplext_dbpulse_enable_cron" class="db-pulse-checkbox-label">
@@ -114,7 +114,7 @@ $cron_schedule      = isset( $settings['cron_schedule'] )      ? $settings['cron
 						value="1"
 						<?php checked( $enable_cron ); ?>
 					/>
-					<?php esc_html_e( 'Automatically purge expired transients via WP-Cron.', 'aplext-db-pulse' ); ?>
+					<?php esc_html_e( 'Automatically purge expired transients via WP-Cron.', 'aplext-dbplus' ); ?>
 				</label>
 				<p class="description">
 					<?php
@@ -122,13 +122,13 @@ $cron_schedule      = isset( $settings['cron_schedule'] )      ? $settings['cron
 					if ( $next_run ) {
 						printf(
 							/* translators: %s: human-readable time until next cron run */
-							esc_html__( 'Next scheduled run: in %s.', 'aplext-db-pulse' ),
+							esc_html__( 'Next scheduled run: in %s.', 'aplext-dbplus' ),
 							esc_html( human_time_diff( time(), $next_run ) )
 						);
 					} elseif ( $enable_cron ) {
-						esc_html_e( 'No event scheduled yet — it will be created when you save.', 'aplext-db-pulse' );
+						esc_html_e( 'No event scheduled yet — it will be created when you save.', 'aplext-dbplus' );
 					} else {
-						esc_html_e( 'Automated cleanup is currently disabled.', 'aplext-db-pulse' );
+						esc_html_e( 'Automated cleanup is currently disabled.', 'aplext-dbplus' );
 					}
 					?>
 				</p>
@@ -139,7 +139,7 @@ $cron_schedule      = isset( $settings['cron_schedule'] )      ? $settings['cron
 		<tr id="aplext-cron-frequency-row">
 			<th scope="row">
 				<label for="aplext_dbpulse_cron_schedule">
-					<?php esc_html_e( 'Cleanup Frequency', 'aplext-db-pulse' ); ?>
+					<?php esc_html_e( 'Cleanup Frequency', 'aplext-dbplus' ); ?>
 				</label>
 			</th>
 			<td>
@@ -167,14 +167,14 @@ $cron_schedule      = isset( $settings['cron_schedule'] )      ? $settings['cron
 					?>
 				</select>
 				<p class="description">
-					<?php esc_html_e( 'How often WP-Cron should automatically purge expired transients. Changes take effect immediately on save.', 'aplext-db-pulse' ); ?>
+					<?php esc_html_e( 'How often WP-Cron should automatically purge expired transients. Changes take effect immediately on save.', 'aplext-dbplus' ); ?>
 				</p>
 			</td>
 		</tr>
 
 	</table>
 
-	<?php submit_button( __( 'Save Settings', 'aplext-db-pulse' ) ); ?>
+	<?php submit_button( __( 'Save Settings', 'aplext-dbplus' ) ); ?>
 
 </form>
 
@@ -185,7 +185,7 @@ $cron_schedule      = isset( $settings['cron_schedule'] )      ? $settings['cron
 			<?php
 			printf(
 				/* translators: %d: number of transients deleted */
-				esc_html__( 'Successfully purged %d expired transient(s) from the database.', 'aplext-db-pulse' ),
+				esc_html__( 'Successfully purged %d expired transient(s) from the database.', 'aplext-dbplus' ),
 				(int) $purged
 			);
 			?>
@@ -193,7 +193,7 @@ $cron_schedule      = isset( $settings['cron_schedule'] )      ? $settings['cron
 	</div>
 <?php elseif ( 0 === $purged ) : ?>
 	<div class="notice notice-info is-dismissible db-pulse-notice">
-		<p><?php esc_html_e( 'No expired transients were found. The database is already clean.', 'aplext-db-pulse' ); ?></p>
+		<p><?php esc_html_e( 'No expired transients were found. The database is already clean.', 'aplext-dbplus' ); ?></p>
 	</div>
 <?php endif; ?>
 
@@ -201,9 +201,9 @@ $cron_schedule      = isset( $settings['cron_schedule'] )      ? $settings['cron
 <table class="widefat fixed striped db-pulse-table" role="grid">
 	<thead>
 		<tr>
-			<th scope="col" style="width: 40%;"><?php esc_html_e( 'Metric', 'aplext-db-pulse' ); ?></th>
-			<th scope="col" style="width: 30%;"><?php esc_html_e( 'Current Value', 'aplext-db-pulse' ); ?></th>
-			<th scope="col" style="width: 30%;"><?php esc_html_e( 'Status', 'aplext-db-pulse' ); ?></th>
+			<th scope="col" style="width: 40%;"><?php esc_html_e( 'Metric', 'aplext-dbplus' ); ?></th>
+			<th scope="col" style="width: 30%;"><?php esc_html_e( 'Current Value', 'aplext-dbplus' ); ?></th>
+			<th scope="col" style="width: 30%;"><?php esc_html_e( 'Status', 'aplext-dbplus' ); ?></th>
 		</tr>
 	</thead>
 	<tbody>
@@ -211,12 +211,12 @@ $cron_schedule      = isset( $settings['cron_schedule'] )      ? $settings['cron
 		<!-- Autoloaded Options Size -->
 		<tr>
 			<td>
-				<strong><?php esc_html_e( 'Autoloaded Options Size', 'aplext-db-pulse' ); ?></strong>
+				<strong><?php esc_html_e( 'Autoloaded Options Size', 'aplext-dbplus' ); ?></strong>
 				<span class="db-pulse-meta">
 					<?php
 					printf(
 						/* translators: %s: threshold formatted string e.g. "800 KB" */
-						esc_html__( 'Threshold: %s', 'aplext-db-pulse' ),
+						esc_html__( 'Threshold: %s', 'aplext-dbplus' ),
 						esc_html( size_format( $autoload['threshold'], 0 ) )
 					);
 					?>
@@ -226,11 +226,11 @@ $cron_schedule      = isset( $settings['cron_schedule'] )      ? $settings['cron
 			<td>
 				<?php if ( 'good' === $autoload['status'] ) : ?>
 					<span class="db-pulse-badge db-pulse-badge--good">
-						✔ <?php esc_html_e( 'Healthy', 'aplext-db-pulse' ); ?>
+						✔ <?php esc_html_e( 'Healthy', 'aplext-dbplus' ); ?>
 					</span>
 				<?php else : ?>
 					<span class="db-pulse-badge db-pulse-badge--warning">
-						⚠ <?php esc_html_e( 'High Bloat', 'aplext-db-pulse' ); ?>
+						⚠ <?php esc_html_e( 'High Bloat', 'aplext-dbplus' ); ?>
 					</span>
 				<?php endif; ?>
 			</td>
@@ -239,13 +239,13 @@ $cron_schedule      = isset( $settings['cron_schedule'] )      ? $settings['cron
 		<!-- Expired Transients -->
 		<tr>
 			<td>
-				<strong><?php esc_html_e( 'Expired Transients', 'aplext-db-pulse' ); ?></strong>
+				<strong><?php esc_html_e( 'Expired Transients', 'aplext-dbplus' ); ?></strong>
 				<?php if ( false !== $last_cron_run ) : ?>
 					<span class="db-pulse-meta">
 						<?php
 						printf(
 							/* translators: 1: human-readable time difference, 2: number of deleted transients */
-							esc_html__( 'Auto-cleaned %1$s ago (%2$d removed)', 'aplext-db-pulse' ),
+							esc_html__( 'Auto-cleaned %1$s ago (%2$d removed)', 'aplext-dbplus' ),
 							esc_html( human_time_diff( $last_cron_run['time'], time() ) ),
 							(int) $last_cron_run['deleted']
 						);
@@ -260,12 +260,12 @@ $cron_schedule      = isset( $settings['cron_schedule'] )      ? $settings['cron
 						<input type="hidden" name="action" value="aplext_dbpulse_purge_transients" />
 						<?php wp_nonce_field( 'aplext_dbpulse_purge_action', 'aplext_dbpulse_nonce' ); ?>
 						<button type="submit" class="button button-secondary db-pulse-purge-btn">
-							🗑 <?php esc_html_e( 'Purge Now', 'aplext-db-pulse' ); ?>
+							🗑 <?php esc_html_e( 'Purge Now', 'aplext-dbplus' ); ?>
 						</button>
 					</form>
 				<?php else : ?>
 					<span class="db-pulse-badge db-pulse-badge--good">
-						✔ <?php esc_html_e( 'Clean', 'aplext-db-pulse' ); ?>
+						✔ <?php esc_html_e( 'Clean', 'aplext-dbplus' ); ?>
 					</span>
 				<?php endif; ?>
 			</td>
@@ -273,20 +273,20 @@ $cron_schedule      = isset( $settings['cron_schedule'] )      ? $settings['cron
 
 		<!-- Page Queries -->
 		<tr>
-			<td><strong><?php esc_html_e( 'Page Queries (this request)', 'aplext-db-pulse' ); ?></strong></td>
+			<td><strong><?php esc_html_e( 'Page Queries (this request)', 'aplext-dbplus' ); ?></strong></td>
 			<td><code><?php echo esc_html( (string) $query_stats['count'] ); ?></code></td>
 			<td>—</td>
 		</tr>
 
 		<!-- Total Query Time -->
 		<tr>
-			<td><strong><?php esc_html_e( 'Total Query Time (this request)', 'aplext-db-pulse' ); ?></strong></td>
+			<td><strong><?php esc_html_e( 'Total Query Time (this request)', 'aplext-dbplus' ); ?></strong></td>
 			<td>
 				<?php if ( $query_stats['savequeries_enabled'] ) : ?>
 					<code><?php echo esc_html( $query_stats['total_time'] ); ?> ms</code>
 				<?php else : ?>
 					<em class="db-pulse-unavailable">
-						<?php esc_html_e( 'Unavailable — SAVEQUERIES not enabled', 'aplext-db-pulse' ); ?>
+						<?php esc_html_e( 'Unavailable — SAVEQUERIES not enabled', 'aplext-dbplus' ); ?>
 					</em>
 				<?php endif; ?>
 			</td>
@@ -308,12 +308,12 @@ $cron_schedule      = isset( $settings['cron_schedule'] )      ? $settings['cron
 					<?php
 					printf(
 						/* translators: %d: slow query count */
-						esc_html( _n( '%d Slow Query Detected', '%d Slow Queries Detected', count( $query_stats['slow_queries'] ), 'aplext-db-pulse' ) ),
+						esc_html( _n( '%d Slow Query Detected', '%d Slow Queries Detected', count( $query_stats['slow_queries'] ), 'aplext-dbplus' ) ),
 						count( $query_stats['slow_queries'] )
 					);
 					printf(
 						/* translators: %d: configured threshold in milliseconds */
-						esc_html__( ' (threshold: %d ms)', 'aplext-db-pulse' ),
+						esc_html__( ' (threshold: %d ms)', 'aplext-dbplus' ),
 						$slow_query_ms
 					);
 					?>
@@ -332,7 +332,7 @@ $cron_schedule      = isset( $settings['cron_schedule'] )      ? $settings['cron
 							<pre class="db-pulse-query-item__sql"><?php echo esc_html( $sq['sql'] ); ?></pre>
 							<?php if ( ! empty( $sq['callers'] ) ) : ?>
 								<p class="db-pulse-query-item__callers">
-									<strong><?php esc_html_e( 'Called by:', 'aplext-db-pulse' ); ?></strong>
+									<strong><?php esc_html_e( 'Called by:', 'aplext-dbplus' ); ?></strong>
 									<?php echo esc_html( $sq['callers'] ); ?>
 								</p>
 							<?php endif; ?>
@@ -346,7 +346,7 @@ $cron_schedule      = isset( $settings['cron_schedule'] )      ? $settings['cron
 				<?php
 				printf(
 					/* translators: %d: configured threshold in milliseconds */
-					esc_html__( 'No slow queries detected on this request (threshold: %d ms).', 'aplext-db-pulse' ),
+					esc_html__( 'No slow queries detected on this request (threshold: %d ms).', 'aplext-dbplus' ),
 					$slow_query_ms
 				);
 				?>
@@ -356,7 +356,7 @@ $cron_schedule      = isset( $settings['cron_schedule'] )      ? $settings['cron
 <?php else : ?>
 	<div class="db-pulse-section db-pulse-savequeries-notice">
 		<span class="db-pulse-badge db-pulse-badge--neutral">ℹ</span>
-		<?php esc_html_e( 'Slow query analysis is disabled. To enable it, add the following to your ', 'aplext-db-pulse' ); ?>
+		<?php esc_html_e( 'Slow query analysis is disabled. To enable it, add the following to your ', 'aplext-dbplus' ); ?>
 		<code>wp-config.php</code>:
 		<pre class="db-pulse-code-hint">define( 'SAVEQUERIES', true );</pre>
 	</div>

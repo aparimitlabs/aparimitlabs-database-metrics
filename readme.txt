@@ -1,4 +1,4 @@
-=== DB-Pulse ===
+=== AplExt DBPlus ===
 Contributors: aparimitlabs
 Tags: database, performance, monitor, transients, wpdb
 Requires at least: 5.8

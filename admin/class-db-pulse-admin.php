@@ -27,7 +27,7 @@ class Admin {
 	 *
 	 * @var string
 	 */
-	const PAGE_SLUG = 'aplext-db-pulse';
+	const PAGE_SLUG = 'aplext-dbplus';
 
 
 
@@ -64,8 +64,8 @@ class Admin {
 	 */
 	public static function register_admin_menu() {
 		add_management_page(
-			__( 'DB-Pulse', 'aplext-db-pulse' ),
-			__( 'DB-Pulse', 'aplext-db-pulse' ),
+			__( 'DB-Pulse', 'aplext-dbplus' ),
+			__( 'DB-Pulse', 'aplext-dbplus' ),
 			'manage_options',
 			self::PAGE_SLUG,
 			array( __CLASS__, 'render_admin_page' )
@@ -159,7 +159,7 @@ class Admin {
 	 */
 	public static function handle_transient_purge() {
 		if ( ! current_user_can( 'manage_options' ) ) {
-			wp_die( esc_html__( 'You do not have permission to perform this action.', 'aplext-db-pulse' ) );
+			wp_die( esc_html__( 'You do not have permission to perform this action.', 'aplext-dbplus' ) );
 		}
 
 		check_admin_referer( 'aplext_dbpulse_purge_action', 'aplext_dbpulse_nonce' );
