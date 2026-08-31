@@ -1,15 +1,15 @@
 <?php
 /**
- * DB-Pulse Query Monitor
+ * Aparimitlabs Database Metrics Query Monitor
  *
  * Hooks into WordPress footer actions to read real-time query statistics
  * from the global $wpdb object. Slow-query detection relies on the
  * SAVEQUERIES constant being defined and truthy in wp-config.php.
  *
- * @package AplExt\DBPulse
+ * @package Aparimitlabs\DBMetrics
  */
 
-namespace AplExt\DBPulse;
+namespace Aparimitlabs\DBMetrics;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
@@ -56,7 +56,7 @@ class QueryMonitor {
 	public static function get_stats() {
 		global $wpdb;
 
-		$settings       = get_option( 'aplext_dbpulse_settings', array() );
+		$settings       = get_option( 'aparimitlabs_db_metrics_settings', array() );
 		$threshold_ms   = isset( $settings['slow_query_ms'] ) ? (int) $settings['slow_query_ms'] : 50;
 		$threshold_secs = $threshold_ms / 1000.0;
 
@@ -110,7 +110,7 @@ class QueryMonitor {
 		$stats = self::get_stats();
 
 		printf(
-			"\n<!-- AplExt DB-Pulse | Queries: %s | Time: %sms -->\n",
+			"\n<!-- Aparimitlabs Aparimitlabs Database Metrics | Queries: %s | Time: %sms -->\n",
 			esc_html( (string) $stats['count'] ),
 			esc_html( $stats['total_time'] )
 		);

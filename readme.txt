@@ -1,4 +1,4 @@
-=== AplExt DBPlus ===
+=== Aparimitlabs Database Metrics ===
 Contributors: aparimitlabs
 Tags: database, performance, monitor, transients, wpdb
 Requires at least: 5.8
@@ -6,13 +6,13 @@ Tested up to: 7.1
 Requires PHP: 8.2
 Stable tag: 1.0.0
 License: GPLv2 or later
-License URI: https://www.gnu.org/licenses/gpl-2.0.html
+License URI: https://www.gnu.org/licenses/old-licenses/gpl-2.0.html
 
 Monitors database query counts, execution time, autoloaded options size, and cleans expired transients with zero performance footprint.
 
 == Description ==
 
-DB-Pulse is a lightweight, high-performance database optimization and monitoring tool designed for WordPress developers and site administrators.
+Aparimitlabs Database Metrics is a lightweight, high-performance database optimization and monitoring tool designed for WordPress developers and site administrators.
 
 It gives you clear, real-time metrics on database health directly inside your WordPress admin tools without running heavy background processes or dragging down site speed.
 
@@ -26,14 +26,14 @@ It gives you clear, real-time metrics on database health directly inside your Wo
 
 == Installation ==
 
-1. Upload the `db-pulse` directory to the `/wp-content/plugins/` directory, or install via the WordPress Plugins menu.
+1. Upload the `database-metrics` directory to the `/wp-content/plugins/` directory, or install via the WordPress Plugins menu.
 2. Activate the plugin through the 'Plugins' menu in WordPress.
-3. Navigate to **Tools > DB-Pulse Dashboard** to view your database metrics and manage transients.
+3. Navigate to **Tools > Aparimitlabs Database Metrics Dashboard** to view your database metrics and manage transients.
 
 == Frequently Asked Questions ==
 
-= Does DB-Pulse run continuously in the background? =
-No. DB-Pulse is engineered to have a zero-footprint execution model. It only calculates metrics when an authorized administrator accesses the metrics dashboard or query stats.
+= Does Aparimitlabs Database Metrics run continuously in the background? =
+No. Aparimitlabs Database Metrics is engineered to have a zero-footprint execution model. It only calculates metrics when an authorized administrator accesses the metrics dashboard or query stats.
 
 = Does deleting transients affect my site content? =
 No. Transients are temporary cached data. Clearing expired transients safely frees up space in your database without touching posts, pages, options, or user data.
@@ -41,9 +41,9 @@ No. Transients are temporary cached data. Clearing expired transients safely fre
 == Changelog ==
 
 = 1.0.0 =
-* Initial public release. Fully compliance-checked with AplExt architectural standards.
+* Initial public release. Fully compliance-checked with Aparimitlabs architectural standards.
 
 == Upgrade Notice ==
 
 = 1.0.0 =
-Initial release of DB-Pulse performance and monitoring suite.
+Initial release of Aparimitlabs Database Metrics performance and monitoring suite.

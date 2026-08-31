@@ -1,15 +1,15 @@
 <?php
 /**
- * DB-Pulse Cron Scheduler
+ * Aparimitlabs Database Metrics Cron Scheduler
  *
  * Manages the WordPress scheduled event that automatically purges expired
  * transients on a daily basis. The last cleanup result is stored as a
  * transient so the admin dashboard can show when it last ran.
  *
- * @package AplExt\DBPulse
+ * @package Aparimitlabs\DBMetrics
  */
 
-namespace AplExt\DBPulse;
+namespace Aparimitlabs\DBMetrics;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
@@ -28,7 +28,7 @@ class Cron {
 	 *
 	 * @var string
 	 */
-	const HOOK = 'aplext_dbpulse_daily_cleanup';
+	const HOOK = 'aparimitlabs_db_metrics_daily_cleanup';
 
 	/**
 	 * Transient key that stores the result of the last cron run.
@@ -36,7 +36,7 @@ class Cron {
 	 *
 	 * @var string
 	 */
-	const LAST_RUN_KEY = 'aplext_dbpulse_last_cron_run';
+	const LAST_RUN_KEY = 'aparimitlabs_db_metrics_last_cron_run';
 
 	/**
 	 * Registers the WordPress action hook that fires when the cron event runs.
@@ -120,7 +120,7 @@ class Cron {
 	public static function run_cleanup() {
 		// Ensure the options analyzer is available in this cron context.
 		if ( ! class_exists( OptionsAnalyzer::class ) ) {
-			require_once APLEXT_DBPULSE_PATH . 'includes/class-db-pulse-options-analyzer.php';
+			require_once APARIMITLABS_DB_METRICS_PATH . 'includes/class-database-metrics-options-analyzer.php';
 		}
 
 		$deleted = OptionsAnalyzer::purge_expired_transients();

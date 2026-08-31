@@ -1,15 +1,15 @@
 <?php
 /**
- * DB-Pulse Options Analyzer
+ * Aparimitlabs Database Metrics Options Analyzer
  *
  * Provides static utility methods for inspecting and cleaning up the
  * wp_options table: measuring autoloaded data size and purging expired
  * transients in safe, batched loops.
  *
- * @package AplExt\DBPulse
+ * @package Aparimitlabs\DBMetrics
  */
 
-namespace AplExt\DBPulse;
+namespace Aparimitlabs\DBMetrics;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
@@ -27,7 +27,7 @@ class OptionsAnalyzer {
 	 *
 	 * @var string
 	 */
-	const AUTOLOAD_CACHE_KEY = 'aplext_dbpulse_autoload_size';
+	const AUTOLOAD_CACHE_KEY = 'aparimitlabs_db_metrics_autoload_size';
 
 	/**
 	 * How long (in seconds) to cache the autoload size result.
@@ -59,7 +59,7 @@ class OptionsAnalyzer {
 
 		global $wpdb;
 
-		$settings  = get_option( 'aplext_dbpulse_settings', array() );
+		$settings  = get_option( 'aparimitlabs_db_metrics_settings', array() );
 		$threshold = isset( $settings['autoload_threshold'] ) ? (int) $settings['autoload_threshold'] : 800000;
 
 		// Static query — no user-supplied variables, so prepare() is not required.

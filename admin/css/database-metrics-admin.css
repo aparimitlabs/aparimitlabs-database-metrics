@@ -1,19 +1,19 @@
 /*
- * DB-Pulse Admin Stylesheet
+ * Aparimitlabs Database Metrics Admin Stylesheet
  *
- * Scoped to Tools → DB-Pulse and Tools → DB-Pulse Settings pages only.
+ * Scoped to Tools → Aparimitlabs Database Metrics and Tools → Aparimitlabs Database Metrics Settings pages only.
  * Builds on top of standard WP admin styles — no resets required.
  *
- * Naming convention: BEM-style with .db-pulse- prefix to avoid conflicts.
+ * Naming convention: BEM-style with .database-metrics- prefix to avoid conflicts.
  */
 
 /* ── Layout & Header ──────────────────────────────────────────────────── */
 
-.db-pulse-wrap {
+.database-metrics-wrap {
 	max-width: 900px;
 }
 
-.db-pulse-header {
+.database-metrics-header {
 	display: flex;
 	align-items: baseline;
 	flex-wrap: wrap;
@@ -23,7 +23,7 @@
 	border-bottom: 1px solid #dcdcde;
 }
 
-.db-pulse-title {
+.database-metrics-title {
 	margin: 0 !important;
 	font-size: 1.5rem;
 	font-weight: 700;
@@ -33,17 +33,17 @@
 	gap: 8px;
 }
 
-.db-pulse-icon {
+.database-metrics-icon {
 	font-size: 1.25rem;
 }
 
-.db-pulse-subtitle {
+.database-metrics-subtitle {
 	margin: 0;
 	color: #646970;
 	flex-basis: 100%;
 }
 
-.db-pulse-settings-link {
+.database-metrics-settings-link {
 	margin-left: auto;
 	font-size: 0.85rem;
 	text-decoration: none;
@@ -54,26 +54,26 @@
 	transition: color 0.15s ease, border-color 0.15s ease;
 }
 
-.db-pulse-settings-link:hover {
+.database-metrics-settings-link:hover {
 	color: #2271b1;
 	border-color: #2271b1;
 }
 
 /* ── Notices ──────────────────────────────────────────────────────────── */
 
-.db-pulse-notice {
+.database-metrics-notice {
 	margin-bottom: 16px !important;
 }
 
 /* ── Metrics Table ────────────────────────────────────────────────────── */
 
-.db-pulse-table {
+.database-metrics-table {
 	margin-top: 32px !important;
 	border-radius: 4px;
 	overflow: hidden;
 }
 
-.db-pulse-table thead th {
+.database-metrics-table thead th {
 	background-color: #f0f0f1;
 	font-weight: 600;
 	font-size: 0.8rem;
@@ -83,31 +83,31 @@
 	padding: 10px 16px;
 }
 
-.db-pulse-table tbody td {
+.database-metrics-table tbody td {
 	padding: 14px 16px;
 	vertical-align: middle;
 	line-height: 1.5;
 }
 
-.db-pulse-table tbody tr:hover td {
+.database-metrics-table tbody tr:hover td {
 	background-color: #f6f7f7;
 }
 
-.db-pulse-meta {
+.database-metrics-meta {
 	display: block;
 	font-size: 0.8rem;
 	color: #646970;
 	margin-top: 3px;
 }
 
-.db-pulse-unavailable {
+.database-metrics-unavailable {
 	color: #646970;
 	font-size: 0.85rem;
 }
 
 /* ── Status Badges ────────────────────────────────────────────────────── */
 
-.db-pulse-badge {
+.database-metrics-badge {
 	display: inline-flex;
 	align-items: center;
 	gap: 4px;
@@ -119,19 +119,19 @@
 	line-height: 1.4;
 }
 
-.db-pulse-badge--good {
+.database-metrics-badge--good {
 	background-color: #edfaef;
 	color: #1a7431;
 	border: 1px solid #b8e6bf;
 }
 
-.db-pulse-badge--warning {
+.database-metrics-badge--warning {
 	background-color: #fef8ee;
 	color: #8a5100;
 	border: 1px solid #f5d67f;
 }
 
-.db-pulse-badge--neutral {
+.database-metrics-badge--neutral {
 	background-color: #f0f6fc;
 	color: #0969da;
 	border: 1px solid #b6d4f7;
@@ -139,7 +139,7 @@
 
 /* ── Purge Button ─────────────────────────────────────────────────────── */
 
-.db-pulse-purge-btn {
+.database-metrics-purge-btn {
 	display: inline-flex;
 	align-items: center;
 	gap: 4px;
@@ -148,20 +148,20 @@
 
 /* ── Section Wrapper ──────────────────────────────────────────────────── */
 
-.db-pulse-section {
+.database-metrics-section {
 	margin-top: 20px;
 }
 
 /* ── Slow Queries Accordion ───────────────────────────────────────────── */
 
-.db-pulse-slow-queries {
+.database-metrics-slow-queries {
 	border: 1px solid #f5d67f;
 	border-radius: 4px;
 	background-color: #fffcf0;
 	overflow: hidden;
 }
 
-.db-pulse-slow-queries__toggle {
+.database-metrics-slow-queries__toggle {
 	display: flex;
 	align-items: center;
 	gap: 8px;
@@ -176,11 +176,11 @@
 	user-select: none;
 }
 
-.db-pulse-slow-queries__toggle::-webkit-details-marker {
+.database-metrics-slow-queries__toggle::-webkit-details-marker {
 	display: none;
 }
 
-.db-pulse-slow-queries__toggle::after {
+.database-metrics-slow-queries__toggle::after {
 	content: "▼";
 	font-size: 0.6rem;
 	color: #8a5100;
@@ -188,17 +188,17 @@
 	transition: transform 0.2s ease;
 }
 
-.db-pulse-slow-queries[open] .db-pulse-slow-queries__toggle::after {
+.database-metrics-slow-queries[open] .database-metrics-slow-queries__toggle::after {
 	transform: rotate(180deg);
 }
 
-.db-pulse-slow-queries__body {
+.database-metrics-slow-queries__body {
 	padding: 0 16px 16px;
 }
 
 /* ── Individual Query Card ────────────────────────────────────────────── */
 
-.db-pulse-query-item {
+.database-metrics-query-item {
 	margin-top: 16px;
 	padding: 12px 14px;
 	background: #fff;
@@ -206,19 +206,19 @@
 	border-radius: 4px;
 }
 
-.db-pulse-query-item__header {
+.database-metrics-query-item__header {
 	display: flex;
 	align-items: center;
 	gap: 10px;
 	margin-bottom: 8px;
 }
 
-.db-pulse-query-item__num {
+.database-metrics-query-item__num {
 	font-size: 0.78rem;
 	color: #646970;
 }
 
-.db-pulse-query-item__sql {
+.database-metrics-query-item__sql {
 	font-family: Consolas, "Courier New", monospace;
 	font-size: 0.78rem;
 	line-height: 1.6;
@@ -234,7 +234,7 @@
 	overflow-y: auto;
 }
 
-.db-pulse-query-item__callers {
+.database-metrics-query-item__callers {
 	font-size: 0.78rem;
 	color: #50575e;
 	margin: 0;
@@ -243,7 +243,7 @@
 
 /* ── No Slow Queries Banner ───────────────────────────────────────────── */
 
-.db-pulse-no-slow {
+.database-metrics-no-slow {
 	display: flex;
 	align-items: center;
 	gap: 10px;
@@ -257,7 +257,7 @@
 
 /* ── SAVEQUERIES Hint Box ─────────────────────────────────────────────── */
 
-.db-pulse-savequeries-notice {
+.database-metrics-savequeries-notice {
 	display: flex;
 	flex-wrap: wrap;
 	align-items: center;
@@ -270,7 +270,7 @@
 	color: #1d2327;
 }
 
-.db-pulse-code-hint {
+.database-metrics-code-hint {
 	flex-basis: 100%;
 	font-family: Consolas, "Courier New", monospace;
 	font-size: 0.82rem;
@@ -284,45 +284,45 @@
 
 /* ── Settings Form ────────────────────────────────────────────────────── */
 
-.db-pulse-settings-form {
+.database-metrics-settings-form {
 	background: #fff;
 	border: 1px solid #dcdcde;
 	border-radius: 4px;
 	padding: 8px 0;
 }
 
-.db-pulse-settings-table th {
+.database-metrics-settings-table th {
 	padding: 20px 16px 20px 24px;
 	font-weight: 600;
 	vertical-align: top;
 	padding-top: 22px;
 }
 
-.db-pulse-settings-table td {
+.database-metrics-settings-table td {
 	padding: 16px 16px 16px 0;
 }
 
-.db-pulse-settings-table tr {
+.database-metrics-settings-table tr {
 	border-top: 1px solid #f0f0f1;
 }
 
-.db-pulse-settings-table tr:first-child {
+.database-metrics-settings-table tr:first-child {
 	border-top: none;
 }
 
-.db-pulse-input-group {
+.database-metrics-input-group {
 	display: flex;
 	align-items: center;
 	gap: 8px;
 	margin-bottom: 6px;
 }
 
-.db-pulse-input-suffix {
+.database-metrics-input-suffix {
 	font-size: 0.85rem;
 	color: #646970;
 }
 
-.db-pulse-checkbox-label {
+.database-metrics-checkbox-label {
 	display: flex;
 	align-items: center;
 	gap: 8px;
@@ -330,6 +330,6 @@
 	cursor: pointer;
 }
 
-.db-pulse-settings-form .submit {
+.database-metrics-settings-form .submit {
 	padding: 16px 24px 8px !important;
 }

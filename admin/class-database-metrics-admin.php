@@ -1,15 +1,15 @@
 <?php
 /**
- * DB-Pulse Admin Handler
+ * Aparimitlabs Database Metrics Admin Handler
  *
  * Registers admin menus, enqueues plugin assets, handles the transient purge
  * POST action, and wires up the WordPress Settings API for plugin options.
  * All output is delegated to view templates in admin/views/.
  *
- * @package AplExt\DBPulse
+ * @package Aparimitlabs\DBMetrics
  */
 
-namespace AplExt\DBPulse;
+namespace Aparimitlabs\DBMetrics;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
@@ -27,7 +27,7 @@ class Admin {
 	 *
 	 * @var string
 	 */
-	const PAGE_SLUG = 'aplext-dbplus';
+	const PAGE_SLUG = 'aparimitlabs-database-metrics';
 
 
 
@@ -36,14 +36,14 @@ class Admin {
 	 *
 	 * @var string
 	 */
-	const OPTION_GROUP = 'aplext_dbpulse_settings_group';
+	const OPTION_GROUP = 'aparimitlabs_db_metrics_settings_group';
 
 	/**
 	 * The wp_options key where plugin settings are stored.
 	 *
 	 * @var string
 	 */
-	const OPTION_NAME = 'aplext_dbpulse_settings';
+	const OPTION_NAME = 'aparimitlabs_db_metrics_settings';
 
 	/**
 	 * Registers all admin-facing WordPress action hooks.
@@ -54,18 +54,18 @@ class Admin {
 		add_action( 'admin_menu',                                               array( __CLASS__, 'register_admin_menu' ) );
 		add_action( 'admin_init',                                               array( __CLASS__, 'register_settings' ) );
 		add_action( 'admin_enqueue_scripts',                                    array( __CLASS__, 'enqueue_admin_assets' ) );
-		add_action( 'admin_post_aplext_dbpulse_purge_transients',               array( __CLASS__, 'handle_transient_purge' ) );
+		add_action( 'admin_post_aparimitlabs_db_metrics_purge_transients',               array( __CLASS__, 'handle_transient_purge' ) );
 	}
 
 	/**
-	 * Registers the DB-Pulse page under Tools in the WordPress admin menu.
+	 * Registers the Aparimitlabs Database Metrics page under Tools in the WordPress admin menu.
 	 *
 	 * @return void
 	 */
 	public static function register_admin_menu() {
 		add_management_page(
-			__( 'DB-Pulse', 'aplext-dbplus' ),
-			__( 'DB-Pulse', 'aplext-dbplus' ),
+			__( 'Aparimitlabs Database Metrics', 'aparimitlabs-database-metrics' ),
+			__( 'Aparimitlabs Database Metrics', 'aparimitlabs-database-metrics' ),
 			'manage_options',
 			self::PAGE_SLUG,
 			array( __CLASS__, 'render_admin_page' )
@@ -131,7 +131,7 @@ class Admin {
 	}
 
 	/**
-	 * Enqueues the plugin stylesheet on the DB-Pulse admin page.
+	 * Enqueues the plugin stylesheet on the Aparimitlabs Database Metrics admin page.
 	 *
 	 * @param string $hook_suffix Current admin page hook suffix.
 	 * @return void
@@ -142,10 +142,10 @@ class Admin {
 		}
 
 		wp_enqueue_style(
-			'aplext-db-pulse-admin',
-			APLEXT_DBPULSE_URL . 'admin/css/db-pulse-admin.css',
+			'aparimitlabs-database-metrics-admin',
+			APARIMITLABS_DB_METRICS_URL . 'admin/css/database-metrics-admin.css',
 			array(),
-			APLEXT_DBPULSE_VERSION
+			APARIMITLABS_DB_METRICS_VERSION
 		);
 	}
 
@@ -159,10 +159,10 @@ class Admin {
 	 */
 	public static function handle_transient_purge() {
 		if ( ! current_user_can( 'manage_options' ) ) {
-			wp_die( esc_html__( 'You do not have permission to perform this action.', 'aplext-dbplus' ) );
+			wp_die( esc_html__( 'You do not have permission to perform this action.', 'aparimitlabs-database-metrics' ) );
 		}
 
-		check_admin_referer( 'aplext_dbpulse_purge_action', 'aplext_dbpulse_nonce' );
+		check_admin_referer( 'aparimitlabs_db_metrics_purge_action', 'aparimitlabs_db_metrics_nonce' );
 
 		$count = OptionsAnalyzer::purge_expired_transients();
 
@@ -179,7 +179,7 @@ class Admin {
 	}
 
 	/**
-	 * Collects all required data and renders the DB-Pulse admin page.
+	 * Collects all required data and renders the Aparimitlabs Database Metrics admin page.
 	 *
 	 * Loads the dashboard metrics view followed by the settings form.
 	 * Access is restricted to users with the manage_options capability.
@@ -198,6 +198,6 @@ class Admin {
 		$settings      = get_option( self::OPTION_NAME, array() );
 		$purged        = isset( $_GET['purged'] ) ? (int) $_GET['purged'] : null; // phpcs:ignore WordPress.Security.NonceVerification.Recommended
 
-		require APLEXT_DBPULSE_PATH . 'admin/views/admin-page.php';
+		require APARIMITLABS_DB_METRICS_PATH . 'admin/views/admin-page.php';
 	}
 }

@@ -1,16 +1,16 @@
 <?php
 /**
- * DB-Pulse Core Bootstrap
+ * Aparimitlabs Database Metrics Core Bootstrap
  *
  * Singleton class responsible for loading all plugin dependencies and
  * registering top-level WordPress hooks. All other classes are loaded
  * exclusively from this file via explicit require_once statements —
  * no autoloaders are used.
  *
- * @package AplExt\DBPulse
+ * @package Aparimitlabs\DBMetrics
  */
 
-namespace AplExt\DBPulse;
+namespace Aparimitlabs\DBMetrics;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
@@ -19,7 +19,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Class Core
  *
- * Central bootstrap and dependency loader for the DB-Pulse plugin.
+ * Central bootstrap and dependency loader for the Aparimitlabs Database Metrics plugin.
  */
 class Core {
 
@@ -60,12 +60,12 @@ class Core {
 	 * @return void
 	 */
 	private function load_dependencies() {
-		require_once APLEXT_DBPULSE_PATH . 'includes/class-db-pulse-query-monitor.php';
-		require_once APLEXT_DBPULSE_PATH . 'includes/class-db-pulse-options-analyzer.php';
-		require_once APLEXT_DBPULSE_PATH . 'includes/class-db-pulse-cron.php';
+		require_once APARIMITLABS_DB_METRICS_PATH . 'includes/class-database-metrics-query-monitor.php';
+		require_once APARIMITLABS_DB_METRICS_PATH . 'includes/class-database-metrics-options-analyzer.php';
+		require_once APARIMITLABS_DB_METRICS_PATH . 'includes/class-database-metrics-cron.php';
 
 		if ( is_admin() ) {
-			require_once APLEXT_DBPULSE_PATH . 'admin/class-db-pulse-admin.php';
+			require_once APARIMITLABS_DB_METRICS_PATH . 'admin/class-database-metrics-admin.php';
 			Admin::init();
 		}
 	}
@@ -95,13 +95,13 @@ class Core {
 	public static function activate() {
 		// Ensure cron class is available during activation.
 		if ( ! class_exists( Cron::class ) ) {
-			require_once APLEXT_DBPULSE_PATH . 'includes/class-db-pulse-cron.php';
+			require_once APARIMITLABS_DB_METRICS_PATH . 'includes/class-database-metrics-cron.php';
 		}
 
 		// Only write defaults when no settings exist to preserve user config on re-activation.
-		if ( false === get_option( 'aplext_dbpulse_settings' ) ) {
+		if ( false === get_option( 'aparimitlabs_db_metrics_settings' ) ) {
 			add_option(
-				'aplext_dbpulse_settings',
+				'aparimitlabs_db_metrics_settings',
 				array(
 					'autoload_threshold' => 800000, // 800 KB in bytes.
 					'slow_query_ms'      => 50,     // Milliseconds.
@@ -112,7 +112,7 @@ class Core {
 		}
 
 		// Schedule cron at the configured frequency (or default 'daily').
-		$settings = get_option( 'aplext_dbpulse_settings', array() );
+		$settings = get_option( 'aparimitlabs_db_metrics_settings', array() );
 		if ( ! empty( $settings['enable_cron'] ) ) {
 			$interval = isset( $settings['cron_schedule'] ) ? $settings['cron_schedule'] : 'daily';
 			Cron::schedule( $interval );
@@ -128,6 +128,6 @@ class Core {
 	 * @return void
 	 */
 	public static function deactivate() {
-		wp_clear_scheduled_hook( 'aplext_dbpulse_daily_cleanup' );
+		wp_clear_scheduled_hook( 'aparimitlabs_db_metrics_daily_cleanup' );
 	}
 }
