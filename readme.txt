@@ -40,10 +40,9 @@ No. Transients are temporary cached data. Clearing expired transients safely fre
 
 == Screenshots ==
 
-1. Overview Dashboard displaying real-time database query counts, total execution time, and system health status.
-2. Autoloaded Options Size Analyzer highlighting memory usage thresholds and bloated options.
-3. Transient Purger module for safely identifying and batch-cleaning expired transients.
-4. Database Query Monitor settings and performance configuration interface.
+1. Autoloaded Options Size Analyzer highlighting memory usage thresholds and bloated options.
+2. Transient Purger module for safely identifying and batch-cleaning expired transients.
+3. Database Query Monitor settings and performance configuration interface.
 
 == Changelog ==
 
