@@ -12,7 +12,7 @@ Monitors real-time DB queries, execution time, autoloaded wp_options size, and s
 
 == Description ==
 
-Aparimitlabs Database Metrics is a lightweight, high-performance database optimization, cleaner, and monitoring plugin engineered for WordPress site owners, developers, and administrators wanting to speed up their website.
+Aparimitlabs Database Metrics is a lightweight, high-performance database optimization, cleaner, and monitoring plugin engineered for WordPress site owners, developers, WooCommerce store owners, and administrators wanting to speed up their website.
 
 A slow WordPress database is the primary cause of high server CPU load, database overhead, and delayed Time to First Byte (TTFB). Common issues like bloated wp_options autoload size, accumulated expired transients, orphan database records, and hidden slow queries degrade site performance across every single page load.
 
@@ -25,10 +25,11 @@ Unlike heavy database cleaner or query monitor plugins that constantly write to 
 = Key Features =
 
 * **Zero-Footprint Performance:** Completely lightweight database cleaner and optimizer. No background processes, cron tracking, or external API calls dragging down site speed.
-* **Autoloaded Options Analyzer:** Instantly detects total memory size of wp_options autoloaded data. Automatically alerts you when autoload size exceeds recommended limits (800 KB) to prevent database bloat.
+* **Autoloaded Options Analyzer:** Instantly detects total memory size of wp_options autoloaded data. Automatically alerts you when autoload size exceeds recommended limits (800 KB) to prevent database bloat and RAM spikes.
 * **Safe Transient Purger & Cleaner:** Identifies expired transients clogging your database and allows safe, one-click batch cleanup with native nonce verification.
-* **Query Execution & Latency Tracker:** Monitors total query count and execution time per page load to pinpoint slow database queries during development, debugging, or speed optimization.
+* **Query Execution & Latency Tracker:** Monitors total wpdb query count and execution time per page load to pinpoint slow database queries during development, debugging, or speed optimization.
 * **Database Health Diagnostic:** Gives instant health status on database tables, options overhead, and query performance.
+* **WooCommerce & E-Commerce Compatible:** Works seamlessly with WooCommerce stores by preventing transient build-up and monitoring autoloaded options.
 * **Strict Security Standards:** Built according to strict WordPress coding standards with full capability checks (manage_options), nonces, and prepared SQL queries.
 
 == Installation ==
@@ -47,6 +48,9 @@ Yes. Transients are temporary cached data (such as temporary API responses or ex
 
 = How does this help reduce TTFB and speed up database queries? =
 By identifying slow database queries, alerting on bloated wp_options autoload size, and purging expired transients, you reduce database execution latency and memory usage on every page load.
+
+= Can this plugin be used alongside WooCommerce or other caching plugins? =
+Yes! It is fully compatible with WooCommerce, object cache plugins (Redis/Memcached), and page caching plugins.
 
 = Does this plugin run background tasks or write data to my database? =
 No. Aparimitlabs Database Metrics is designed with a zero-footprint philosophy. It only executes analysis when you open the tools page in the dashboard.
