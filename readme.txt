@@ -16,7 +16,7 @@ Aparimitlabs Database Metrics is a lightweight, high-performance database optimi
 
 A slow WordPress database is the primary cause of high server CPU load and delayed Time to First Byte (TTFB). Common issues like bloated wp_options autoload size, accumulated expired transients, and hidden slow queries degrade site performance across every single page load.
 
-This plugin provides clear diagnostic visibility into database health directly inside your WordPress dashboard — with zero performance overhead or background process bloat.
+This plugin provides clear diagnostic visibility into database health directly inside your WordPress dashboard - with zero performance overhead or background process bloat.
 
 = Why Choose Aparimitlabs Database Metrics? =
 
