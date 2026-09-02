@@ -1,6 +1,6 @@
 === Aparimitlabs Database Metrics ===
 Contributors: aparimitlabs
-Tags: database, performance, monitor, transients, wpdb
+Tags: database, performance, autoload, transients, optimization
 Requires at least: 5.8
 Tested up to: 7.1
 Requires PHP: 8.2
@@ -8,35 +8,44 @@ Stable tag: 1.0.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/old-licenses/gpl-2.0.html
 
-Monitors database query counts, execution time, autoloaded options size, and cleans expired transients with zero performance footprint.
+Monitors real-time DB queries, execution time, autoloaded wp_options size, and safely purges expired transients with zero performance footprint.
 
 == Description ==
 
-Aparimitlabs Database Metrics is a lightweight, high-performance database optimization and monitoring tool designed for WordPress developers and site administrators.
+Aparimitlabs Database Metrics is a lightweight, high-performance database optimization and monitoring plugin engineered for WordPress site owners, developers, and administrators.
 
-It gives you clear, real-time metrics on database health directly inside your WordPress admin tools without running heavy background processes or dragging down site speed.
+A slow WordPress database is the primary cause of high server CPU load and delayed Time to First Byte (TTFB). Common issues like bloated wp_options autoload size, accumulated expired transients, and hidden slow queries degrade site performance across every single page load.
+
+This plugin provides clear diagnostic visibility into database health directly inside your WordPress dashboard — with zero performance overhead or background process bloat.
+
+= Why Choose Aparimitlabs Database Metrics? =
+
+Unlike heavy monitoring plugins that constantly write to your database or run resource-intensive background tasks, Aparimitlabs Database Metrics uses a Zero-Footprint Execution Model. It executes diagnostics on-demand only when an authorized administrator views the dashboard.
 
 = Key Features =
 
-* **Zero Footprint:** Loads strictly when stats are viewed—no background overhead or external dependencies.
-* **Autoload Size Detection:** Highlights bloated `wp_options` data exceeding recommended thresholds.
-* **Transient Purger:** Safely counts and batch-cleans expired transients using secure native nonces.
-* **Query Performance Counter:** Displays real-time query counts and flags slow database executions.
-* **Strict Security Standards:** Built using full capability checks, input sanitization, nonces, and prepared SQL queries.
+* **Zero-Footprint Performance:** Completely lightweight. No background processes, tracking, or external API calls dragging down site speed.
+* **Autoloaded Options Analyzer:** Instantly detects the total memory size of wp_options autoloaded data. Automatically alerts you when autoload size exceeds recommended limits (800 KB).
+* **Safe Transient Purger:** Identifies expired transients clogging your database and allows safe, one-click batch cleanup with native nonce verification.
+* **Query Execution Tracker:** Monitors total query count and execution latency per page load to pinpoint slow database queries during development or troubleshooting.
+* **Strict Security Standards:** Built according to strict WordPress coding standards with full capability checks (manage_options), nonces, and prepared SQL queries.
 
 == Installation ==
 
-1. Upload the `database-metrics` directory to the `/wp-content/plugins/` directory, or install via the WordPress Plugins menu.
-2. Activate the plugin through the 'Plugins' menu in WordPress.
-3. Navigate to **Tools > Aparimitlabs Database Metrics Dashboard** to view your database metrics and manage transients.
+1. Upload the `aparimitlabs-database-metrics` folder to `/wp-content/plugins/`, or install directly via Plugins > Add New in WordPress.
+2. Activate the plugin.
+3. Navigate to Tools > Aparimitlabs Database Metrics to inspect real-time database health, autoload size, and transient metrics.
 
 == Frequently Asked Questions ==
 
-= Does Aparimitlabs Database Metrics run continuously in the background? =
-No. Aparimitlabs Database Metrics is engineered to have a zero-footprint execution model. It only calculates metrics when an authorized administrator accesses the metrics dashboard or query stats.
+= How do autoloaded options affect my WordPress site speed? =
+WordPress loads every autoload=yes option in wp_options into memory on every single page request. When autoload size grows beyond 800 KB (often caused by uninstalled plugins or large options), site loading times and server memory consumption spike dramatically. This plugin alerts you before it slows down your site.
 
-= Does deleting transients affect my site content? =
-No. Transients are temporary cached data. Clearing expired transients safely frees up space in your database without touching posts, pages, options, or user data.
+= Does deleting expired transients touch my posts, pages, or options? =
+No. Transients are temporary cached data (such as temporary API responses or expired session caches). Deleting expired transients safely reclaims database storage without affecting your site content, users, or settings.
+
+= Does this plugin run background tasks or write data to my database? =
+No. Aparimitlabs Database Metrics is designed with a zero-footprint philosophy. It only executes analysis when you open the tools page in the dashboard.
 
 == Screenshots ==
 
