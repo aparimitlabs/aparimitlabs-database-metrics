@@ -38,6 +38,13 @@ No. Aparimitlabs Database Metrics is engineered to have a zero-footprint executi
 = Does deleting transients affect my site content? =
 No. Transients are temporary cached data. Clearing expired transients safely frees up space in your database without touching posts, pages, options, or user data.
 
+== Screenshots ==
+
+1. Overview Dashboard displaying real-time database query counts, total execution time, and system health status.
+2. Autoloaded Options Size Analyzer highlighting memory usage thresholds and bloated options.
+3. Transient Purger module for safely identifying and batch-cleaning expired transients.
+4. Database Query Monitor settings and performance configuration interface.
+
 == Changelog ==
 
 = 1.0.0 =
