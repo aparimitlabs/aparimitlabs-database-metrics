@@ -1,20 +1,19 @@
 <?php
 /**
+ * Plugin Name: Aparimitlabs Database Metrics
+ * Plugin URI: https://github.com/aparimitlabs/aparimitlabs-database-metrics
+ * Description: Monitors database query counts, total execution time, autoloaded options size, and orphan transients.
+ * Version: 1.0.0
+ * Author: Aparimit Labs
+ * License: GPLv2 or later
+ * License URI: https://www.gnu.org/licenses/old-licenses/gpl-2.0.html
+ * Text Domain: aparimitlabs-database-metrics
+ * Domain Path: /languages
+ * Requires at least: 5.8
+ * Requires PHP: 8.2
+ *
  * @package Aparimitlabs_Database_Metrics
  */
-/*
-Plugin Name: Aparimitlabs Database Metrics
-Plugin URI: https://github.com/aparimitlabs/aparimitlabs-database-metrics
-Description: Monitors database query counts, total execution time, autoloaded options size, and orphan transients.
-Version: 1.0.0
-Requires at least: 5.8
-Requires PHP: 8.2
-Author: Aparimit Labs
-License: GPLv2 or later
-License URI: https://www.gnu.org/licenses/old-licenses/gpl-2.0.html
-Text Domain: aparimitlabs-database-metrics
-Domain Path: /languages
-*/
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
